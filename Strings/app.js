@@ -1,8 +1,6 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
 
 
 const airline='British Air Ways'
@@ -41,7 +39,7 @@ const capitalizeNAme=function(txt){
         
     // return [firstChar.toUpperCase(),]
 }
-console.log(capitalizeNAme('erdal dincer'))
+
 
 
 ////padding a string
@@ -63,8 +61,46 @@ console.log(mascCreditCard(12345678909876))
 ///repeat
 
 let warning='Bad weather.... All departures Delayed...'
-console.log(warning.repeat(5))
+// console.log(warning.repeat(5))
+// let arr=['underscore_case','first_name','Some_Variable','calculate_AGE','delayed_depature']
+// arr=arr.map(item=>{
+//   item=item.split('_')
+//   item=item[0]+item[1][0].toUpperCase()+item[1].slice(1)
+//   return item
+// })
+// console.log(arr)
 
+// underscore_case,first_name,Some_Variable,calculate_AGE,delayed_depature
+
+let textArea=document.getElementById('textarea')
+
+
+const cameCaseConverter=()=>{
+  let arr=textArea.value.split(',')
+  arr=arr.map((item,index)=>{
+  item=item.split('_')
+  item=item[0]+item[1][0].toUpperCase()+item[1].slice(1)
+  console.log(item.padEnd(20) + '✅'.repeat(index+1))
+})
+}
+
+
+document.getElementById('btn').addEventListener('click',cameCaseConverter)
+
+
+
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+for(let flight of flights.split('+')){
+  let[statu,direction,arrival,time]=flight.split(';')
+  statu=statu.replace(/[^A-Za-z]/g,' ').trim()
+  direction='from '+direction.slice(0,2).toUpperCase()
+  arrival='to '+arrival.slice(0,2).toUpperCase()
+  time=time.replace(':','h')
+  console.log(`${statu} ${direction} ${arrival} ${time}`)
+}
 
 
 
