@@ -133,3 +133,12 @@ document.querySelector('.buy').addEventListener('click',lutfhansa.buyPlane.bind(
 
 ///Partial Application
 
+const addTax=(rate,value)=>value+(value*rate);
+console.log(addTax(0.3,2000))
+
+
+// if the function is common to preset parameter do this below
+// const addTax=(rate,value)=>value+(value*0.36);
+const addVAT=addTax.bind(null,0.36)
+
+console.log(addVAT(2000))
