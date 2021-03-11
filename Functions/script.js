@@ -107,3 +107,29 @@ book.apply(swiss,flightData)
 book.call(swiss,...flightData)
 
 ///bind Method
+
+///bookEW has been engaged to objects with this
+const bookEW=book.bind(euroWings)
+const bookLH=book.bind(lutfhansa)
+const bookSW=book.bind(swiss)
+bookEW(23424,'eros fatos')
+bookLH(234009,'eren nafi')
+
+///line 69 a bakarsan goreceksin ki book function 2 parametre aliyr sen burada 23 u predefine ediyrsn sonra sadece 2. parametreyi giriyrsn
+const bookEW23=book.bind(euroWings,23)
+bookEW23('Fatos Dincer')
+
+//with Event Listeners
+lutfhansa.planes=300
+lutfhansa.buyPlane=function(){
+    console.log(this)
+    this.planes++
+    console.log(this.planes)
+}
+document.querySelector('.buy').addEventListener('click',lutfhansa.buyPlane.bind(lutfhansa))
+
+////EVENT listener lutfhansa.buyPlane i cagrdgnda function'un icinde ki this bakyr kim cagrms ve onu this kabl ediyr bunu onlemek icin biz functionu bind ediyrz diyruz ki bak senin this'in lutfhansa
+
+
+///Partial Application
+
