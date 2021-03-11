@@ -58,3 +58,52 @@ greeting('erdal')
 const greeter=greeting=>name=>console.log(`${greeting} ${name}`)
 
 greeter('Hi')('erdal')
+
+
+///11-March-2021
+const lutfhansa={
+    airline:'Lutfhansa',
+    iataCode:'LH',
+    bookings:[],
+    //book:function(){}
+    book(FlightNum ,name){
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${FlightNum}`)
+        this.bookings.push({flight:`${this.iataCode}${FlightNum}`,name})
+    }
+    
+}
+lutfhansa.book(242,'ERdal Dincer')
+console.log(lutfhansa.bookings)
+
+
+const euroWings={
+    airline:'EuroWings',
+    iataCode:'EW',
+    bookings:[],
+
+}
+const book=lutfhansa.book
+
+//call method is used to apply a method from an object in another object
+///use book method of lutfhansa in eurowings
+book.call(euroWings,23,'Erdal')
+console.log(euroWings)
+
+///use book method of lutfhansa in lutfhansa
+book.call(lutfhansa,3452,'Cezmi Kaya')
+
+
+const swiss={
+    airline:'Swiss',
+    iataCode:'LX',
+    bookings:[]
+}
+
+book.call(swiss,2342,'Ceno Celik')
+
+//apply method
+const flightData=[123,'ERdal Dincer']///not use because of spread operator
+book.apply(swiss,flightData)
+book.call(swiss,...flightData)
+
+///bind Method
