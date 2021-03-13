@@ -142,3 +142,20 @@ console.log(addTax(0.3,2000))
 const addVAT=addTax.bind(null,0.36)
 
 console.log(addVAT(2000))
+
+
+///immediately invoked function expressions (IIFE)
+
+const runOnce=()=>{
+    console.log('this will never run again')
+}
+runOnce();
+
+///sonuna parantez koyarak invoke ediyrsn isimsiz olmasi icn function declarationu () icine aliyrsn
+(()=>{console.log('this will never run again')})()
+
+
+{
+    const isprivate=15
+}
+// console.log(isprivate) isprivate scopeun icinde kaldgi icin error veriyr
